@@ -100,7 +100,7 @@
   "Testimonials": [
     {
       "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+      "text": "They are helping Advertisers to generate dynamic Ad Creatives which will help in brand recognition and creating high quality Ads.",
       "name": "Omprakash Yadav"
     },
     {
@@ -133,12 +133,12 @@
     {
       "img": "img/team/abhinav.jpeg",
       "name": "Abhinav Kant",
-      "job": "FrontEnd"
+      "job": "Product, FrontEnd, Design, Arch"
     },
     {
       "img": "img/team/aman.jpeg",
       "name": "Aman Gupta",
-      "job": "ML Engineering"
+      "job": "ML Engineering, Product, Advisor"
     },
     {
       "img": "img/team/manish.jpeg",
@@ -148,10 +148,10 @@
     {
       "img": "img/team/kalyan.jpg",
       "name": "Kalyan Dutta",
-      "job": "Backend"
+      "job": "Backend, Infra"
     },
     {
-      "img": "img/team/04.jpg",
+      "img": "img/team/shashi.jpeg",
       "name": "Shashidhar Gani",
       "job": "Backend"
     }
@@ -167,23 +167,23 @@
   "Features": [
     {
       "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Dynamic Creative Creation",
+      "text": "Our AI creates dynamic realtime creatives for your Offers."
     },
     {
       "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Confidential Product 2",
+      "text": "This will be something special."
     },
     {
       "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Brainstorming idea 3",
+      "text": "This will also be something special."
     },
     {
       "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Coming Soon",
+      "text": "To be decided"
     }
   ]
 }

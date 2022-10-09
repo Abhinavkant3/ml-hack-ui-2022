@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 export const Navigation = (props) => {
   return (
-    <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
+    <nav id='menu' className='navbar navbar-default navbar-fixed-top fixed-top'>
       <div className='container'>
         <div className='navbar-header'>
           <button
@@ -15,9 +17,8 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#page-top'>
-            Creative-ity
-          </a>{' '}
+          <Link className='navbar-brand page-scroll' to='/'>Creative-ity</Link>
+          {' '}
         </div>
 
         <div

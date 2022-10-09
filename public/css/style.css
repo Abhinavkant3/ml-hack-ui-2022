@@ -70,6 +70,16 @@ hr {
   margin-bottom: 20px;
   border: 0;
 }
+
+.fixed-bottom,
+.fixed-top {
+  position: initial;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+}
+
 /* Navigation */
 #menu {
   padding: 15px;
@@ -609,4 +619,9 @@ label {
   #about img {
     margin: 50px 0;
   }
+}
+
+.dynamic-creative-form {
+  width: 40%;
+  margin: 0 auto;
 }

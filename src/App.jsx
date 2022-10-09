@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react";
-import { Navigation } from "./components/navigation";
-import { Header } from "./components/header";
-import { Features } from "./components/features";
-import { About } from "./components/about";
-import { Services } from "./components/services";
-import { Gallery } from "./components/gallery";
-import { Testimonials } from "./components/testimonials";
-import { Team } from "./components/Team";
-import { Contact } from "./components/contact";
-import JsonData from "./data/data.json";
+
+import { Navigation } from "./pages/landingPage/components/navigation";
 import SmoothScroll from "smooth-scroll";
+import { Route, Routes } from 'react-router-dom';
+import LandingPage  from './pages/landingPage/LandingPage';
 import "./App.css";
+import 'antd/dist/antd.css';
+import DynamicCreatives from "./pages/dynamicCreatives/DynamicCreatives";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -18,22 +13,13 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 });
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []);
-
   return (
     <div>
       <Navigation />
-      <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
-      <Gallery data={landingPageData.Gallery}/>
-      <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} />
+      <Routes>
+        <Route path='/' element={<LandingPage/>} />
+        <Route path='/dynamic-creatives' element={<DynamicCreatives/>} />
+      </Routes>
     </div>
   );
 };
