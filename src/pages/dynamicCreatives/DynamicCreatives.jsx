@@ -1,6 +1,13 @@
 import React from 'react';
 import { Button, Form, Input, Upload } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { sendToDataBricks } from './../../apis';
+import { BlobServiceClient } from '@azure/storage-blob';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import {
+  useMutation
+} from '@tanstack/react-query';
+const { Dragger } = Upload;
+
 
 const layout = {
   labelCol: {
@@ -21,22 +28,62 @@ const tailLayout = {
 function DynamicCreatives() {
 
   const [form] = Form.useForm();
+
+  const {
+    mutate,
+    isLoading: isFetchingDatabricksResponse,
+    data: respData,
+    error
+  } = useMutation(
+    (payload)=> sendToDataBricks(payload),
+  );
+
   const onFinish = (values) => {
+    mutate({key: values});
     console.log(values);
   };
   const onReset = () => {
     form.resetFields();
   };
 
+  const handleUpload = (e) => {
+    debugger;
+  }
+
   const normFile = (e) => {
     console.log('Upload event:', e);
-  
     if (Array.isArray(e)) {
       return e;
     }
-  
     return e?.fileList;
   };
+
+  const uploadFile = async (options) => {
+    const {
+      onSuccess, onError, file, onProgress
+    } = options;
+
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+    const accountName = '';
+    const sasToken= '';
+    const containerName = '';
+
+    const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net?${sasToken}`);
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+
+    try {
+      reader.onload = (
+        async function () {
+          const arrayBuffer = reader.result;
+          const fileName = file.name;
+          const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+          
+        }
+      )
+    } catch (err) {
+    
+    }
 
   return (
     <div>
@@ -70,7 +117,17 @@ function DynamicCreatives() {
                 getValueFromEvent={normFile}
                 extra="Upload the logo of Ad Offer."
               >
-                <Upload name="logo" listType="picture">
+                <Dragger
+                  accept=".jpg, .jpeg, .png"
+                  customRequest={uploadFile}
+                >
+                  <p className="ant-upload-drag-icon">
+                    <InboxOutlined />
+                  </p>
+                  <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                  <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                </Dragger>
+                <Upload name="logo" action={handleUpload} listType="picture">
                   <Button icon={<UploadOutlined />}>Click to upload</Button>
                 </Upload>
               </Form.Item>
